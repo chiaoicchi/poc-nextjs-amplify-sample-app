@@ -19,6 +19,10 @@ export default function App() {
     });
   }
 
+  function deleteTodo(id: string) {
+      client.models.Todo.delete({ id })
+  }
+
   useEffect(() => {
     listTodos();
   }, []);
@@ -42,6 +46,7 @@ export default function App() {
       <ul className="flex flex-col gap-px bg-black rounded-md border border-black overflow-auto">
         {todos.map((todo) => (
           <li
+            onClick={() => deleteTodo(todo.id)}
             key={todo.id}
             className="bg-white p-2 hover:bg-[#dadbf9] text-left"
           >
