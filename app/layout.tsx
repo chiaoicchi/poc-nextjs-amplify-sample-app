@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import AuthenticatorWrapper from "./AuthenticatorWrapper";
+import "@aws-amplify/ui-react/styles.css";
+import outputs from "@/amplify_outputs.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} m-0 h-screen w-screen flex justify-center items-center bg-gradient-to-b from-[#7551C2] to-white`}>
-        {children}
+        <AuthenticatorWrapper>
+          {children}
+        </AuthenticatorWrapper>
       </body>
     </html>
   );
